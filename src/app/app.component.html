@@ -1,0 +1,38 @@
+<!--<h1>{{title}}</h1>
+   <div *ngIf="success">Successfully added user</div>
+   <div *ngIf="success; else showValue">Successfully added user</div>
+   <ng-template #showValue>It is false</ng-template>
+
+   <ul>
+     <li *ngFor="let contact of contacts;index as i;first as f;last as l">
+       <div *ngIf="f">I am Happy for you</div>
+       <div *ngIf="l">I am not Happy for you</div>
+       {{i}}{{contact.firstName}}{{contact.LastName}}
+     </li>
+   </ul>
+
+   <div [ngSwitch]="superPower">
+     <div *ngSwitchCase="'BatMan'">BatMan</div>
+     <div *ngSwitchCase="'SuperMan'">SuperMan</div>
+     <div *ngSwitchCase="'WonderWomen'">WonderWomen</div>
+     <div *ngSwitchCase="'Hulk'">Hulk</div>
+     <div *ngSwitchDefault>DeadPool</div>
+   </div>
+
+   <div [ngStyle]="{'backrground-color':'green','color':'#fff'}">This is green</div>
+   <div [ngClass]="'one'"></div>
+   <button (click) = "printHello()">Click Here</button>
+   <input [(ngModel)]="uName" />
+   <div>{{uName}}</div> 
+
+   <p>{{iamhappy|uppercase}}</p>
+   <p>{{percentExample|percent:'2.2-3'}}</p>
+   <p>{{dateExample|date:'short'}}</p>
+   <p>{{dateExample|date:'M/dd/yy'}}</p> 
+ 
+<router-outlet name ="route1"></router-outlet> 
+<router-outlet name ="route2"></router-outlet> 
+<mat-slide-toggle>Slide me!</mat-slide-toggle>-->
+
+
+<router-outlet></router-outlet>

@@ -1,0 +1,14 @@
+<form #paymentsform="ngForm" (submit) ="payments(paymentsform)">
+    Enter Your Name:<input type="text" [(ngModel)]="firstName" name="firstName" required minlength="10">
+    <br>
+    Check it : <input type="checkbox" [(ngModel)] ="choose" name ="choose" required>
+    <br>
+    Select Gender:<input type="radio" [(ngModel)]="preferences" value="male" name="preferences">Male
+    <input type="radio" [(ngModel)]="preferences" value="female" name="preferences">Female
+    <br>
+    <textarea [(ngModel)]="paragraph" name="paragraph" id="" cols="30" rows="10"></textarea>
+    <button [disabled] = "!paymentsform.valid" (submit) ="payments(paymentsform)">Submit</button>
+    <button class="btn btn-link" (click)="resetForm(paymentsform)">Reset Form</button>
+    <button class="btn btn-link" (click)="setValues(paymentsform)">Set Values</button>
+</form>
+

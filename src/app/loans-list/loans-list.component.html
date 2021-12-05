@@ -1,0 +1,41 @@
+
+<form [formGroup]="addLoansTypeForm" >
+    
+    <div class="form-group">
+        <label >Enter the Loan Name</label>
+        <input type="text" formControlName="loanName" (keyup)="trackChanges()">
+         <span class="text-danger" *ngIf="addLoansTypeForm.get('loanName').hasError('required')&& addLoansTypeForm.get('loanName').touched">Loan Name is requiredS</span>
+         <span class="text-danger" *ngIf="addLoansTypeForm.get('loanName').hasError('minlength')&& addLoansTypeForm.get('loanName').touched"> minimum of 10 characters</span>
+   
+    </div>
+    <div class="formg-roup">
+        <label > Enter Loand Description</label>
+        <input type="text" formControlName="loanDescription">
+    </div>    
+    <div formArrayName="users">
+        <div *ngFor="let user of addLoansTypeForm.controls.users['controls'];index as i;">
+            <input type="text" [formControlName]="i">
+            
+        </div>
+    </div>
+    <div formArrayName="usersLoan">
+        <div *ngFor="let control of addLoansTypeForm.controls.usersLoan['controls'];let i=index;" [formGroupName]="i">
+            <input type="text" formcontrolName="name">
+            <input type="text" formcontrolName="age">
+            <input type="text" formcontrolName="dept">
+            <button (click)="removeUser(i)">Delete</button>
+            
+           
+       
+        </div>
+    </div>
+    <button [disabled]="!addLoansTypeForm.valid" (click)="addLoan()" >Submit</button>
+    <button (click)="setFormValues()">Set Values</button>
+    <button (click)="resetFormValues()">ReSet Values</button>
+    <button (click)="addUsers()">Add New user</button>
+</form>
+
+<p *ngFor="let user of users;index as i">
+    {{i+1}}.{{user.name}} | {{i+1}}.{{user. email }} |   {{i+1}}.{{user.phone}}
+
+</p>
